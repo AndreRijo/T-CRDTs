@@ -1,0 +1,19 @@
+package tCRDT.set;
+
+import generic.concurrency.Policy;
+
+public class PriorityAddPolicy implements Policy<SetOperation> {
+
+    public static final String NAME = "pAdd";
+
+    @Override
+    public String getName() {
+        return NAME;
+    }
+
+    @Override
+    public Boolean apply(SetOperation op, SetOperation otherOp) {
+        return op.getElement().equals(otherOp.getElement()) && op.getType() == SetOperation.ADD &&
+                otherOp.getType() == SetOperation.REMOVE && !otherOp.getSelfPolicyName().equals(LwwSetPolicy.NAME);
+    }
+}
