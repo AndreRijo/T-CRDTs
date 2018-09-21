@@ -1,6 +1,6 @@
 # T-CRDT Library
 
-The T-CRDT is a java library which provides four basic data types:
+The T-CRDT Library is a Java library which provides T-CRDTs for four basic data types:
 + Register
 + Counter
 + Set
